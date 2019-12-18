@@ -74,10 +74,14 @@ const List = observer(() => {
   }, []);
   return (
     <View style={ROOT}>
-      {imageCollection.loading || !session.token ? (
+      {(imageCollection.loading && !imageCollection.pictures.length) ||
+      !session.token ? (
         <ActivityIndicator />
       ) : (
         <FlatList
+          onEndReached={() => {
+            imageCollection.fetchImages();
+          }}
           style={FLATLIST}
           data={imageCollection.pairedPictures}
           keyExtractor={([first, second]) => first.id + second.id}

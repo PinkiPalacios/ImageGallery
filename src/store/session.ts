@@ -7,7 +7,6 @@ const SessionModel = types.model({
     fetchToken: flow(function* () {
         const token = yield auth()
         self.token = token
-        console.log('ESTE', self)
     },
     )
 })).actions(self => ({

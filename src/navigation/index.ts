@@ -3,6 +3,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import List from '../views/List'
 import ImageView from '../views/Image'
+import { heightPercentageToDP } from 'react-native-responsive-screen';
 
 
 
@@ -16,10 +17,7 @@ const mainStack = createStackNavigator(
             }
         },
         ImageView: {
-            screen: ImageView,
-            navigationOptions: {
-                header: null
-            }
+            screen: ImageView
         }
     })
 
